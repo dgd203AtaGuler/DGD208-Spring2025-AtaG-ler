@@ -1,1 +1,24 @@
-//DGD208-AtaGüler-225040071
+##BAŞLAMA EKRANI
+print("Welcome to ......")
+print("1. Start")
+print("2. Settings")
+print("3. Credit")
+print("4. Exit")
+print("Press 1-2-3-4")
+##SEÇENEKLER
+try:
+    Start_Choose = int(input("Enter your choice: "))
+
+    if Start_Choose == 1:
+        print("Startgame")
+        print("Devamı gelecek...")
+    elif Start_Choose == 2:
+        print("Settings")
+    elif Start_Choose == 3:
+        print("Credit")
+    elif Start_Choose == 4:
+        print("Exit")
+    else:
+        print("Lütfen sadece 1-2-3-4 seçeneklerinden birini giriniz.")
+except ValueError:
+    print("Lütfen geçerli bir sayı giriniz.")
