@@ -1,0 +1,35 @@
+using System;
+
+public class AnimalTypes
+{
+    public static string Type = "Animal";
+
+    public string Name { get; set; }
+    public string Gender { get; set; }
+    public string WildDomesticated { get; set; }
+    public int Age { get; set; }
+    public string AnimalType { get; set; }
+
+    public AnimalTypes(string name, string gender, string wildDomesticated, int age, string animalType)
+    {
+        Name = name;
+        Gender = gender;
+        WildDomesticated = wildDomesticated;
+        Age = age;
+        AnimalType = animalType;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        AnimalTypes garavel = new AnimalTypes("Garavel", "Male", "domesticated", 3, "cat");
+        AnimalTypes simba = new AnimalTypes("Simba", "Female", "domesticated", 2, "cat");
+        AnimalTypes cancan = new AnimalTypes("Cancan", "Male", "domesticated", 8, "bird");
+        AnimalTypes su = new AnimalTypes("Su", "Female", "domesticated", 4, "bird");
+        AnimalTypes pasa = new AnimalTypes("Pasa", "Male", "domesticated", 10, "dog");
+        AnimalTypes paul = new AnimalTypes("Paul", "Male", "wild", 15, "octopus");
+        
+    }
+}
