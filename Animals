@@ -30,6 +30,9 @@ class Program
         AnimalTypes su = new AnimalTypes("Su", "Female", "domesticated", 4, "bird");
         AnimalTypes pasa = new AnimalTypes("Pasa", "Male", "domesticated", 10, "dog");
         AnimalTypes paul = new AnimalTypes("Paul", "Male", "wild", 15, "octopus");
-        
+        AnimalTypes victor = new AnimalTypes("Victor", "Male", "wild", 11, "crocodile");
+        AnimalTypes rafa = new AnimalTypes("Rafa", "Female", "wild", 6, "eagle");
+        AnimalTypes nando = new AnimalTypes("Nando", "Female", "wild", 7, "lion");
     }
+
 }
