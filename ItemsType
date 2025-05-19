@@ -1,0 +1,35 @@
+public enum Item
+{
+    Food,
+    Toy
+}
+
+public class Item
+{
+    public string name { get; set; }
+    public Item Type { get; set; }
+
+    public Item(string name, Item type)
+    {
+        name = name;
+        Type = type;
+    }
+}
+
+public class Animal
+{
+    public static string Type = "Animal";
+
+    public string name { get; set; }
+    public string Gender { get; set; }
+    public string WildDomesticated { get; set; }
+    public int Age { get; set; }
+    public string AnimalType { get; set; }
+
+    //0 ile 100 arası olacak
+    public int Hunger { get; set; } = 50;
+    public int Happiness { get; set; } = 50; 
+    
+    //public Animal(.....)
+    
+}
