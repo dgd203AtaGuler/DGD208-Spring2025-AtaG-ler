@@ -1,49 +1,104 @@
 using System;
-//DGD208-AtaGüler-225040071
+
 class Program
 {
     static void Main()
     {
-        Console.WriteLine("Welcome to ......");
-        Console.WriteLine("1. Start");
-        Console.WriteLine("2. Settings");
-        Console.WriteLine("3. Credit");
-        Console.WriteLine("4. Exit");
-        Console.WriteLine("Press 1-2-3-4");
+        ShowMainMenu();
+    }
 
+    static void ShowMainMenu()
+    {
         while (true)
         {
-            Console.Write("Enter your choice: ");
+            Console.WriteLine("Welcome The Game");
+            Console.WriteLine("1. Oyunu Başlat");
+            Console.WriteLine("2. Ayarlar");
+            Console.WriteLine("3. Hakkında");
+            Console.WriteLine("4. Çıkış");
+            Console.Write("Seçiminiz (1-4): ");
             string input = Console.ReadLine();
 
-            if (int.TryParse(input, out int Start_Choose))
+            if (int.TryParse(input, out int choice))
             {
-                if (Start_Choose == 1)
+                Console.Clear();
+                switch (choice)
                 {
-                    Console.WriteLine("Startgame");
-                    Console.WriteLine("Devamı gelecek...");
-                }
-                else if (Start_Choose == 2)
-                {
-                    Console.WriteLine("Settings");
-                }
-                else if (Start_Choose == 3)
-                {
-                    Console.WriteLine("Credit");
-                }
-                else if (Start_Choose == 4)
-                {
-                    Console.WriteLine("Exit");
-                }
-                else
-                {
-                    Console.WriteLine("Lütfen sadece 1-2-3-4 seçeneklerinden birini giriniz.");
+                    case 1:
+                        StartGame();
+                        break;
+                    case 2:
+                        ShowSettings();
+                        break;
+                    case 3:
+                        ShowCredits();
+                        break;
+                    case 4:
+                        Console.WriteLine("Çıkılıyor... Görüşmek üzere!");
+                        return;
+                    default:
+                        Console.WriteLine("Lütfen 1 ile 4 arasında bir sayı giriniz.");
+                        break;
                 }
             }
             else
             {
-                Console.WriteLine("Lütfen geçerli bir sayı giriniz.");
+                Console.WriteLine("Geçerli bir sayı giriniz.");
             }
         }
+    }
+
+    static void StartGame()
+    {
+        Console.WriteLine("🎮 Oyun Başlıyor...");
+        Console.WriteLine("Karakterinizi seçin:");
+        Console.WriteLine("1. Kedi");
+        Console.WriteLine("2. Köpek");
+        Console.WriteLine("3. Kuş");
+        //kalanlar
+
+        Console.Write("Seçiminiz: ");
+        string secim = Console.ReadLine();
+
+        switch (secim)
+        {
+            case "1":
+                Console.WriteLine("Kedi karakteri seçildi. Miyav!");
+                break;
+            case "2":
+                Console.WriteLine("Köpek karakteri seçildi. Hav hav!");
+                break;
+            case "3":
+                Console.WriteLine("Kuş karakteri seçildi. Cik cik!");
+                break;
+            default:
+                Console.WriteLine("Geçersiz seçim, ana menüye dönülüyor.");
+                break;
+        }
+        Console.WriteLine("Devamı yakında...");
+        Console.WriteLine();
+    }
+
+    //static void ShowSettings()
+    //{
+        //Console.WriteLine("⚙️ Ayarlar");
+        //Console.WriteLine("1. Ses Seviyesi (Yüksek/Orta/Düşük)");
+        //Console.WriteLine("2. Zorluk (Kolay/Orta/Zor)");
+
+        //Console.Write("Ses Seviyesi seçin: ");
+        //string ses = Console.ReadLine();
+
+        //Console.Write("Zorluk seviyesi seçin: ");
+        //string zorluk = Console.ReadLine();
+
+        //Console.WriteLine($"Ses Seviyesi: {ses}, Zorluk: {zorluk} olarak ayarlandı.");
+        //Console.WriteLine();
+    //}
+
+    static void ShowCredits()
+    {
+        Console.WriteLine("📜 Hakkında");
+        Console.WriteLine("Bu proje DGD208 dersi için Ata Güler (225040071) tarafından geliştirilmiştir.");
+        Console.WriteLine();
     }
 }
