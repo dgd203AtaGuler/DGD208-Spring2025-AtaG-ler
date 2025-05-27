@@ -1,1 +1,110 @@
-##
+using System;
+using System.Collections.Generic;
+
+public enum ItemType
+{
+    Food,
+    Toy
+}
+
+public enum PetStat
+{
+    Hunger,
+    Sleep,
+    Fun
+}
+
+public class Item
+{
+    public string Name { get; set; }
+    public ItemType Type { get; set; }
+
+    public Item(string name, ItemType type)
+    {
+        Name = name;
+        Type = type;
+    }
+}
+
+public class Animal
+{
+    public static string Type = "Animal";
+
+    public string Name { get; set; }
+    public string Gender { get; set; }
+    public string WildDomesticated { get; set; }
+    public int Age { get; set; }
+    public string AnimalType { get; set; }
+
+  
+    public Dictionary<PetStat, int> Stats { get; set; }
+
+    public Animal(string name, string gender, string wildDomesticated, int age, string animalType)
+    {
+        Name = name;
+        Gender = gender;
+        WildDomesticated = wildDomesticated;
+        Age = age;
+        AnimalType = animalType.ToLower();
+
+        Stats = new Dictionary<PetStat, int>
+        {
+            { PetStat.Hunger, 50 },
+            { PetStat.Sleep, 50 },
+            { PetStat.Fun, 50 }
+        };
+    }
+
+    public void Feed(Item item)
+    {
+        if (item.Type != ItemType.Food) return;
+
+        int effect = GetFoodEffect(item.Name);
+        Stats[PetStat.Hunger] = Math.Max(0, Stats[PetStat.Hunger] - effect);
+
+        Console.WriteLine($"{Name} ate {item.Name}, Hunger decreased by {effect} to {Stats[PetStat.Hunger]}.");
+    }
+
+    public void Play(Item item)
+    {
+        if (item.Type != ItemType.Toy) return;
+
+        int effect = GetToyEffect(item.Name);
+        Stats[PetStat.Fun] = Math.Min(100, Stats[PetStat.Fun] + effect);
+
+        Console.WriteLine($"{Name} played with {item.Name}, Fun increased by {effect} to {Stats[PetStat.Fun]}.");
+    }
+
+    public void Sleep()
+    {
+        int effect = 30;
+        Stats[PetStat.Sleep] = Math.Min(100, Stats[PetStat.Sleep] + effect);
+
+        Console.WriteLine($"{Name} slept and Sleep increased by {effect} to {Stats[PetStat.Sleep]}.");
+    }
+
+    private int GetFoodEffect(string foodName)
+    {
+        var meatEaters = new List<string> { "dog", "lion", "crocodile", "cat" };
+        var herbivores = new List<string> { "bird", "eagle", "rabbit" };
+
+        if (meatEaters.Contains(AnimalType) && (foodName == "Meat" || foodName == "Fish"))
+            return 30;
+        else if (herbivores.Contains(AnimalType) && foodName == "Grass")
+            return 30;
+        else
+            return 10;
+    }
+
+    private int GetToyEffect(string toyName)
+    {
+        return AnimalType switch
+        {
+            "cat" => toyName == "Ball" ? 30 : 10,
+            "dog" => toyName == "Rope" ? 30 : 10,
+            "bird" => toyName == "Mirror" ? 25 : 10,
+            "lion" => toyName == "Log" ? 20 : 5,
+            _ => 10
+        };
+    }
+}
