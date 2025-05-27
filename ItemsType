@@ -1,4 +1,7 @@
-public enum Item
+using System;
+using System.Collections.Generic;
+
+public enum ItemType
 {
     Food,
     Toy
@@ -6,12 +9,12 @@ public enum Item
 
 public class Item
 {
-    public string name { get; set; }
-    public Item Type { get; set; }
+    public string Name { get; set; }
+    public ItemType Type { get; set; }
 
-    public Item(string name, Item type)
+    public Item(string name, ItemType type)
     {
-        name = name;
+        Name = name;
         Type = type;
     }
 }
@@ -20,16 +23,70 @@ public class Animal
 {
     public static string Type = "Animal";
 
-    public string name { get; set; }
+    public string Name { get; set; }
     public string Gender { get; set; }
     public string WildDomesticated { get; set; }
     public int Age { get; set; }
     public string AnimalType { get; set; }
 
-    //0 ile 100 arası olacak
     public int Hunger { get; set; } = 50;
-    public int Happiness { get; set; } = 50; 
-    
-    //public Animal(.....)
-    
+    public int Happiness { get; set; } = 50;
+
+    public Animal(string name, string gender, string wildDomesticated, int age, string animalType)
+    {
+        Name = name;
+        Gender = gender;
+        WildDomesticated = wildDomesticated;
+        Age = age;
+        AnimalType = animalType.ToLower(); 
+    }
+
+    public void Feed(Item item)
+    {
+        var meatEaters = new List<string> { "dog", "lion", "crocodile", "cat" };
+        var herbivores = new List<string> { "bird", "eagle", "rabbit" };
+
+        int effect = 0;
+        if (item.Type == ItemType.Food)
+        {
+            if (meatEaters.Contains(AnimalType) && (item.Name == "Meat" || item.Name == "Fish"))
+                effect = 30;
+            else if (herbivores.Contains(AnimalType) && item.Name == "Grass")
+                effect = 30;
+            else
+                effect = 10;
+
+            Hunger = Math.Max(0, Hunger - effect);
+            Console.WriteLine($"{Name} ate {item.Name}. Hunger decreased by {effect} to {Hunger}.");
+        }
+    }
+
+    public void Play(Item item)
+    {
+        int effect = 0;
+        if (item.Type == ItemType.Toy)
+        {
+            switch (AnimalType)
+            {
+                case "cat":
+                    effect = item.Name == "Ball" ? 30 : 10;
+                    break;
+                case "dog":
+                    effect = item.Name == "Rope" ? 30 : 10;
+                    break;
+                case "bird":
+                    effect = item.Name == "Mirror" ? 25 : 10;
+                    break;
+                case "lion":
+                    effect = item.Name == "Log" ? 20 : 5;
+                    break;
+                default:
+                    effect = 10;
+                    break;
+            }
+
+            Happiness = Math.Min(100, Happiness + effect);
+            Console.WriteLine($"{Name} played with {item.Name}. Happiness increased by {effect} to {Happiness}.");
+        }
+    }
 }
