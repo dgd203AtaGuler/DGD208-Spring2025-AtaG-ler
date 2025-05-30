@@ -1,1 +1,233 @@
+public static class ItemDatabase
+{
+    public static List<Item> AllItems = new List<Item>
+    {
+        // Foods
+        new Item(
+            name: "Kibble",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Dog },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 15,
+            duration: 2.5f),
 
+        new Item(
+            name: "Premium Dog Food",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Dog },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 30,
+            duration: 3.0f),
+
+        new Item(
+            name: "Cat Food",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Cat },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 15,
+            duration: 2.0f),
+
+        new Item(
+            name: "Tuna Treat",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Cat },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 25,
+            duration: 1.5f),
+
+        new Item(
+            name: "Bird Seed",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Bird },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 10,
+            duration: 1.0f),
+
+        new Item(
+            name: "Fruit Mix",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Bird },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 20,
+            duration: 2.0f),
+
+        new Item(
+            name: "Fish Flakes",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Fish },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 10,
+            duration: 0.5f),
+
+        new Item(
+            name: "Premium Fish Pellets",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Fish },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 20,
+            duration: 1.0f),
+
+        new Item(
+            name: "Carrots",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Rabbit },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 15,
+            duration: 3.0f),
+
+        new Item(
+            name: "Leafy Greens",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Rabbit },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 25,
+            duration: 4.0f),
+
+        // Universal Foods
+        new Item(
+            name: "Vitamin Treat",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Dog, PetType.Cat, PetType.Rabbit },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 10,
+            duration: 1.0f),
+
+        new Item(
+            name: "Gourmet Dinner",
+            type: ItemType.Food,
+            compatibleWith: new List<PetType> { PetType.Dog, PetType.Cat },
+            affectedStat: PetStat.Hunger,
+            effectAmount: 40,
+            duration: 5.0f),
+
+        // Toys
+        new Item(
+            name: "Tennis Ball",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Dog },
+            affectedStat: PetStat.Fun,
+            effectAmount: 20,
+            duration: 4.0f),
+
+        new Item(
+            name: "Squeaky Toy",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Dog },
+            affectedStat: PetStat.Fun,
+            effectAmount: 15,
+            duration: 2.5f),
+
+        new Item(
+            name: "String Toy",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Cat },
+            affectedStat: PetStat.Fun,
+            effectAmount: 20,
+            duration: 3.0f),
+
+        new Item(
+            name: "Toy Mouse",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Cat },
+            affectedStat: PetStat.Fun,
+            effectAmount: 15,
+            duration: 2.0f),
+
+        new Item(
+            name: "Swing",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Bird },
+            affectedStat: PetStat.Fun,
+            effectAmount: 15,
+            duration: 3.0f),
+
+        new Item(
+            name: "Bell",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Bird },
+            affectedStat: PetStat.Fun,
+            effectAmount: 10,
+            duration: 1.5f),
+
+        new Item(
+            name: "Bubbler",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Fish },
+            affectedStat: PetStat.Fun,
+            effectAmount: 10,
+            duration: 2.0f),
+
+        new Item(
+            name: "Water Plant",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Fish },
+            affectedStat: PetStat.Fun,
+            effectAmount: 15,
+            duration: 1.5f),
+
+        new Item(
+            name: "Chew Toy",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Rabbit },
+            affectedStat: PetStat.Fun,
+            effectAmount: 15,
+            duration: 3.5f),
+
+        new Item(
+            name: "Tunnel",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Rabbit },
+            affectedStat: PetStat.Fun,
+            effectAmount: 20,
+            duration: 4.0f),
+
+        new Item(
+            name: "Ball",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Dog, PetType.Cat, PetType.Rabbit },
+            affectedStat: PetStat.Fun,
+            effectAmount: 10,
+            duration: 2.0f),
+
+        // Sleep items
+        new Item(
+            name: "Comfy Bed",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Dog, PetType.Cat },
+            affectedStat: PetStat.Sleep,
+            effectAmount: 30,
+            duration: 6.0f),
+
+        new Item(
+            name: "Pet Blanket",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Dog, PetType.Cat, PetType.Rabbit },
+            affectedStat: PetStat.Sleep,
+            effectAmount: 20,
+            duration: 4.0f),
+
+        new Item(
+            name: "Perch",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Bird },
+            affectedStat: PetStat.Sleep,
+            effectAmount: 25,
+            duration: 3.0f),
+
+        new Item(
+            name: "Cave Decoration",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Fish },
+            affectedStat: PetStat.Sleep,
+            effectAmount: 15,
+            duration: 2.0f),
+
+        new Item(
+            name: "Hideaway",
+            type: ItemType.Toy,
+            compatibleWith: new List<PetType> { PetType.Rabbit },
+            affectedStat: PetStat.Sleep,
+            effectAmount: 25,
+            duration: 5.0f),
+    };
+}
