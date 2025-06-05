@@ -11,12 +11,11 @@ class Program
     {
         while (true)
         {
-            Console.WriteLine("Welcome The Game");
-            Console.WriteLine("1. Oyunu Başlat");
-            Console.WriteLine("2. Ayarlar");
-            Console.WriteLine("3. Hakkında");
-            Console.WriteLine("4. Çıkış");
-            Console.Write("Seçiminiz (1-4): ");
+            Console.WriteLine("Welcome to the Game");
+            Console.WriteLine("1. Start Game");
+            Console.WriteLine("2. Credits");
+            Console.WriteLine("3. Exit");
+            Console.Write("Your choice (1-3): ");
             string input = Console.ReadLine();
 
             if (int.TryParse(input, out int choice))
@@ -28,77 +27,66 @@ class Program
                         StartGame();
                         break;
                     case 2:
-                        ShowSettings();
-                        break;
-                    case 3:
                         ShowCredits();
                         break;
-                    case 4:
-                        Console.WriteLine("Çıkılıyor... Görüşmek üzere!");
+                    case 3:
+                        Console.WriteLine("Exiting... See you next time!");
                         return;
                     default:
-                        Console.WriteLine("Lütfen 1 ile 4 arasında bir sayı giriniz.");
+                        Console.WriteLine("Please enter a number between 1 and 3.");
                         break;
                 }
             }
             else
             {
-                Console.WriteLine("Geçerli bir sayı giriniz.");
+                Console.WriteLine("Please enter a valid number.");
             }
         }
     }
 
     static void StartGame()
     {
-        Console.WriteLine("🎮 Oyun Başlıyor...");
-        Console.WriteLine("Karakterinizi seçin:");
-        Console.WriteLine("1. Kedi");
-        Console.WriteLine("2. Köpek");
-        Console.WriteLine("3. Kuş");
-        //kalanlar
+        Console.WriteLine("🎮 The game is starting...");
+        Console.WriteLine("Select your character:");
+        Console.WriteLine("1. Cat");
+        Console.WriteLine("2. Dog");
+        Console.WriteLine("3. Bird");
+        Console.WriteLine("4. Lion");
+        Console.WriteLine("5. Rabbit");
 
-        Console.Write("Seçiminiz: ");
-        string secim = Console.ReadLine();
+        Console.Write("Your choice: ");
+        string selection = Console.ReadLine();
 
-        switch (secim)
+        switch (selection)
         {
             case "1":
-                Console.WriteLine("Kedi karakteri seçildi. Miyav!");
+                Console.WriteLine("Cat character selected. Meow!");
                 break;
             case "2":
-                Console.WriteLine("Köpek karakteri seçildi. Hav hav!");
+                Console.WriteLine("Dog character selected. Woof woof!");
                 break;
             case "3":
-                Console.WriteLine("Kuş karakteri seçildi. Cik cik!");
+                Console.WriteLine("Bird character selected. Chirp chirp!");
+                break;
+            case "4":
+                Console.WriteLine("Lion character selected. Roar!");
+                break;
+            case "5":
+                Console.WriteLine("Rabbit character selected. Hop hop!");
                 break;
             default:
-                Console.WriteLine("Geçersiz seçim, ana menüye dönülüyor.");
-                break;
+                Console.WriteLine("Invalid selection, returning to main menu.");
+                return;
         }
-        Console.WriteLine("Devamı yakında...");
+
+        Console.WriteLine("Your adventure has begun!");
         Console.WriteLine();
     }
 
-    //static void ShowSettings()
-    //{
-        //Console.WriteLine("⚙️ Ayarlar");
-        //Console.WriteLine("1. Ses Seviyesi (Yüksek/Orta/Düşük)");
-        //Console.WriteLine("2. Zorluk (Kolay/Orta/Zor)");
-
-        //Console.Write("Ses Seviyesi seçin: ");
-        //string ses = Console.ReadLine();
-
-        //Console.Write("Zorluk seviyesi seçin: ");
-        //string zorluk = Console.ReadLine();
-
-        //Console.WriteLine($"Ses Seviyesi: {ses}, Zorluk: {zorluk} olarak ayarlandı.");
-        //Console.WriteLine();
-    //}
-
     static void ShowCredits()
     {
-        Console.WriteLine("📜 Hakkında");
-        Console.WriteLine("Bu proje DGD208 dersi için Ata Güler (225040071) tarafından geliştirilmiştir.");
+        Console.WriteLine("📜 About");
+        Console.WriteLine("This project was developed by Ata Guler (225040071) for the DGD208 course.");
         Console.WriteLine();
     }
 }
